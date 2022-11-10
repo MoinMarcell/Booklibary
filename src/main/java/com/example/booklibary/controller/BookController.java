@@ -43,11 +43,11 @@ public class BookController {
 
     @DeleteMapping("/books/delete")
     Book removeBookByIsbn(@RequestBody Book book){
-        return bookService.removeBookByIsbn(book.isbn());
+        return bookService.removeBookByIsbn(book.getIsbn());
     }
 
     @PutMapping("books/update-title-for-isbn")
     Book updateTitleForIsbn(@RequestBody Book book){
-        return bookService.updateBookTitleForIsbn(book.isbn(), book.title());
+        return bookService.updateBookTitleForIsbn(book.getIsbn(), book.getTitle());
     }
 }

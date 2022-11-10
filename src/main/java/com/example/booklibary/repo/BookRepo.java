@@ -27,7 +27,7 @@ public class BookRepo {
     public Book addBook(Book book){
         for(Book b : books){
             if(b.equals(book)){
-                return new Book("0", "Fehler!", "Buch bereits vorhanden!");
+                return new Book("Fehler!", "Buch bereits vorhanden!");
             }
         }
         books.add(book);
@@ -36,7 +36,7 @@ public class BookRepo {
 
     public Book getBookByIsbn(String isbn){
         for(Book b : books){
-            if(b.isbn().equals(isbn)){
+            if(b.getIsbn().equals(isbn)){
                 return b;
             }
         }
@@ -45,7 +45,7 @@ public class BookRepo {
 
     public Book getBookByTitle(String title){
         for(Book b : books){
-            if(b.title().equals(title)){
+            if(b.getTitle().equals(title)){
                 return b;
             }
         }
@@ -55,7 +55,7 @@ public class BookRepo {
     public List<Book> getBooksByAuthor(String author){
         List<Book> booksByAuthor = new ArrayList<>();
         for(Book b : books){
-            if(b.author().equals(author)){
+            if(b.getAuthor().equals(author)){
                 booksByAuthor.add(b);
             }
         }
@@ -64,7 +64,7 @@ public class BookRepo {
 
     public Book removeBookByIsbn(String isbn){
         for(Book b : books){
-            if(b.isbn().equals(isbn)){
+            if(b.getIsbn().equals(isbn)){
                 books.remove(b);
                 return b;
             }
@@ -74,13 +74,11 @@ public class BookRepo {
 
     public Book updateTitleForIsbn(String isbn, String title){
         for(Book b : books){
-            if(b.isbn().equals(isbn)){
-                Book copy = new Book(b.isbn(), title, b.author());
-                books.remove(b);
-                books.add(copy);
-                return copy;
+            if(b.getIsbn().equals(isbn)){
+                b.setTitle(title);
+                return b;
             }
         }
-        return new Book("0", "Fehler!", "Die ISBN gibt es nicht!");
+        return new Book("Fehler!", "Die ISBN gibt es nicht!");
     }
 }

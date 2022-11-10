@@ -28,7 +28,7 @@ class BookRepoTest {
     @Test
     void addBook() {
         // GIVEN
-        Book expected = new Book("123", "", "");
+        Book expected = new Book("", "");
         // WHEN
         when(bookRepo.addBook(expected)).thenReturn(expected);
         Book result = bookRepo.addBook(expected);
@@ -40,7 +40,7 @@ class BookRepoTest {
     @Test
     void getBookByIsbn() {
         // GIVEN
-        Book expected = new Book("1", "", "");
+        Book expected = new Book("", "");
         String isbn = "1";
         // WHEN
         when(bookRepo.getBookByIsbn(isbn)).thenReturn(expected);
@@ -53,7 +53,7 @@ class BookRepoTest {
     @Test
     void getBookByTitle() {
         // GIVEN
-        Book expected = new Book("123", "Bananenkönig", "Helmut Graupe");
+        Book expected = new Book("Bananenkönig", "Helmut Graupe");
         String title = "Bananenkönig";
         // WHEN
         when(bookRepo.getBookByTitle(title)).thenReturn(expected);
