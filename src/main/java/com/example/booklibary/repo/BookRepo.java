@@ -81,6 +81,6 @@ public class BookRepo {
                 return copy;
             }
         }
-        return null;
+        return new Book("0", "Fehler!", "Die ISBN gibt es nicht!");
     }
 }
