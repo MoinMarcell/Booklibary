@@ -61,4 +61,14 @@ public class BookRepo {
         }
         return booksByAuthor;
     }
+
+    public Book removeBookByIsbn(String isbn){
+        for(Book b : books){
+            if(b.isbn().equals(isbn)){
+                books.remove(b);
+                return b;
+            }
+        }
+        return null;
+    }
 }

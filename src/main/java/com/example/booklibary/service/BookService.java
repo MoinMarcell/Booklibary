@@ -33,4 +33,8 @@ public class BookService {
     public List<Book> getBooksByAuthor(String author){
         return bookRepo.getBooksByAuthor(author);
     }
+
+    public Book removeBookByIsbn(String isbn){
+        return bookRepo.removeBookByIsbn(isbn);
+    }
 }

@@ -40,4 +40,9 @@ public class BookController {
     List<Book> getBooksByAuthor(@RequestBody String author){
         return bookService.getBooksByAuthor(author);
     }
+
+    @DeleteMapping("/books/delete")
+    Book removeBookByIsbn(@RequestBody Book book){
+        return bookService.removeBookByIsbn(book.isbn());
+    }
 }
