@@ -25,13 +25,18 @@ public class BookRepo {
     }
 
     public Book addBook(Book book){
+        for(Book b : books){
+            if(b.equals(book)){
+                return new Book("0", "Fehler!", "Buch bereits vorhanden!");
+            }
+        }
         books.add(book);
         return book;
     }
 
-    public Book getBookByIsbn(int isbn){
+    public Book getBookByIsbn(String isbn){
         for(Book b : books){
-            if(b.isbn() == isbn){
+            if(b.isbn().equals(isbn)){
                 return b;
             }
         }
