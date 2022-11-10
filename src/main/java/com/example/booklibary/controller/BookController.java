@@ -26,12 +26,12 @@ public class BookController {
         return bookService.addBook(bookToAdd);
     }
 
-    @GetMapping("/books/{isbn}")
+    @GetMapping(path="/books/book-by-isbn/{isbn}")
     Book getBookByIsbn(@PathVariable String isbn){
         return bookService.getBookByIsbn(isbn);
     }
 
-    @GetMapping(path="/books/{title}")
+    @GetMapping(path="/books/book-by-title/{title}")
     Book getBookByTitle(@PathVariable String title){
         return bookService.getBookByTitle(title);
     }
@@ -44,5 +44,10 @@ public class BookController {
     @DeleteMapping("/books/delete")
     Book removeBookByIsbn(@RequestBody Book book){
         return bookService.removeBookByIsbn(book.isbn());
+    }
+
+    @PutMapping("books/update-title-for-isbn")
+    Book updateTitleForIsbn(@RequestBody Book book){
+        return bookService.updateBookTitleForIsbn(book.isbn(), book.title());
     }
 }

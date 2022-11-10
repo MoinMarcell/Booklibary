@@ -37,4 +37,8 @@ public class BookService {
     public Book removeBookByIsbn(String isbn){
         return bookRepo.removeBookByIsbn(isbn);
     }
+
+    public Book updateBookTitleForIsbn(String isbn, String title){
+        return bookRepo.updateTitleForIsbn(isbn, title);
+    }
 }

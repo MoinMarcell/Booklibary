@@ -71,4 +71,16 @@ public class BookRepo {
         }
         return null;
     }
+
+    public Book updateTitleForIsbn(String isbn, String title){
+        for(Book b : books){
+            if(b.isbn().equals(isbn)){
+                Book copy = new Book(b.isbn(), title, b.author());
+                books.remove(b);
+                books.add(copy);
+                return copy;
+            }
+        }
+        return null;
+    }
 }
